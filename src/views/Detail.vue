@@ -13,7 +13,11 @@
       <dt>Nom</dt>
       <dd>{{ userDetail.firstName }} {{ userDetail.lastName }}</dd>
       <dt>Date de Naissance</dt>
-      <dd>{{ userDetail.birthDate }}</dd>
+      <dd>
+        {{ new Date(userDetail.birthDate).getDate() }} /
+        {{ new Date(userDetail.birthDate).getMonth() +1 }} /
+        {{ new Date(userDetail.birthDate).getFullYear() }}
+      </dd>
       <dt>Genre</dt>
       <dd>{{ userDetail.gender }}</dd>
       <dt>Email</dt>
