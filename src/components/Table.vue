@@ -40,7 +40,7 @@
           <td>{{ user.gender }}</td>
           <td>
             {{ new Date(Date.now() - new Date(user.birthDate)
-              .getTime()).getFullYear() - 1970}}
+              .getTime()).getFullYear() - 1970 }}
           </td>
         </tr>
       </tbody>
