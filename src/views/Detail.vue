@@ -3,15 +3,15 @@
     <h1>
       Detail User
     </h1>
-    <button
-      class="button"
-      @click="modifier()"
-    >
-      Formulaire de modification
-    </button>
     <dl
       v-if="formulaire === false"
     >
+      <button
+        class="button"
+        @click="modifier()"
+      >
+        Formulaire de modification
+      </button>
       <dd>
         <img
           :src="userDetail.avatarUrl"
@@ -36,6 +36,12 @@
       <dd>{{ userDetail.details }}</dd>
     </dl>
     <div v-if="formulaire === true">
+      <button
+        class="button"
+        @click="modifier()"
+      >
+        Fermer le formulaire
+      </button>
       <FormUpdate
         :user="userDetail"
       />
