@@ -1,13 +1,13 @@
 <template>
   <div>
     <Header
-      v-model="users"
+      :users="users"
       :selected="selected"
       :search="search"
       @changeGender="(val) => (selected = val)"
       @changeSearch="(val) => (search = val)"
+      @fetchUsers="fetchUsers"
     />
-
     <table class="table table-hover">
       <thead>
         <tr>
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Header from './Header.vue';
 
 export default {
@@ -103,7 +104,7 @@ export default {
             if (this.trieNom === 'desc') {
               return user2.name.last.localeCompare(user1.name.last);
             }
-						return false;
+            return false;
           })
           .map((user) => {
             const nom = `${user.name.first} ${user.name.last}`;
@@ -123,6 +124,13 @@ export default {
   },
   created() {},
   methods: {
+    fetchUsers() {
+      axios('https://randomuser.me/api/?results=20').then(
+        ({ data: { results } }) => {
+          this.users = results;
+        },
+      );
+    },
     sortAge() {
       this.trieNom = '';
       if (this.trieAge === 'asc') {
