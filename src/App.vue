@@ -9,7 +9,6 @@
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       >
-      <!--<router-link to="/">Home</router-link> |-->
     </div>
     <router-view />
   </div>
