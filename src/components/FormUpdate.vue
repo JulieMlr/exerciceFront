@@ -46,7 +46,7 @@
         type="button"
         @click="getValue()"
       >
-        Récupérer la valeur
+        Modifier User
       </button>
     </form>
   </div>
