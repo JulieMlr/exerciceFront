@@ -2,13 +2,6 @@
   <div>
     <h1>jQuery example</h1>
     <hr>
-    <button
-      class="btn btn-primary"
-      @click="$emit('fetchUsers')"
-    >
-      Fetch users
-    </button>
-
     <select
       v-model="selected"
       @change="$emit('changeGender', selected)"

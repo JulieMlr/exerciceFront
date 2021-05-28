@@ -6,7 +6,6 @@
       :search="search"
       @changeGender="(val) => (selected = val)"
       @changeSearch="(val) => (search = val)"
-      @fetchUsers="fetchUsers"
     />
     <Table
       :trie-age="trieAge"
@@ -95,6 +94,7 @@ export default {
     },
   },
   created() {},
+  beforeMount() { this.fetchUsers(); },
   methods: {
     fetchUsers() {
       axios('https://randomuser.me/api/?results=20').then(
