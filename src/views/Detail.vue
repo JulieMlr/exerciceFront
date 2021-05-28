@@ -3,7 +3,15 @@
     <h1>
       Detail User
     </h1>
-    <dl>
+    <button
+      class="button"
+      @click="modifier()"
+    >
+      Formulaire de modification
+    </button>
+    <dl
+      v-if="formulaire === false"
+    >
       <dd>
         <img
           :src="userDetail.avatarUrl"
@@ -27,19 +35,28 @@
       <dt>Detail</dt>
       <dd>{{ userDetail.details }}</dd>
     </dl>
+    <div v-if="formulaire === true">
+      <FormUpdate
+        :user="userDetail"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import FormUpdate from '../components/FormUpdate.vue';
 
 export default {
   name: 'Detail',
-
+  components: {
+    FormUpdate,
+  },
   data() {
     return {
       id: this.$route.params.id, // this is the id from the browser
       userDetail: {},
+      formulaire: false,
     };
   },
   created() {
@@ -53,6 +70,9 @@ export default {
         },
       );
     },
+    modifier() {
+      this.formulaire = !this.formulaire;
+    },
   },
 };
 </script>
@@ -60,5 +80,8 @@ export default {
 <style scoped>
 .image {
   width: 10%;
+}
+.button {
+  margin-bottom: 10px;
 }
 </style>
