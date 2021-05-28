@@ -93,8 +93,7 @@ export default {
       );
     },
   },
-  created() {},
-  beforeMount() { this.fetchUsers(); },
+  created() { this.fetchUsers(); },
   methods: {
     fetchUsers() {
       axios('https://ynov-front.herokuapp.com/api/users').then(
