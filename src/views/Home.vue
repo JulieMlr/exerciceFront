@@ -64,16 +64,20 @@ export default {
           // Mettre le sort après les filtres
           .sort((user1, user2) => {
             if (this.trieAge === 'asc') {
-              return user1.dob.age - user2.dob.age;
+              return (new Date(Date.now() - new Date(user1.birthDate)
+                .getTime()).getFullYear() - 1970) - (new Date(Date.now() - new Date(user2.birthDate)
+                .getTime()).getFullYear() - 1970);
             }
             if (this.trieAge === 'desc') {
-              return user2.dob.age - user1.dob.age;
+              return (new Date(Date.now() - new Date(user2.birthDate)
+                .getTime()).getFullYear() - 1970) - (new Date(Date.now() - new Date(user1.birthDate)
+                .getTime()).getFullYear() - 1970);
             }
             if (this.trieNom === 'asc') {
-              return user1.name.last.localeCompare(user2.name.last);
+              return user1.lastName.localeCompare(user2.lastName);
             }
             if (this.trieNom === 'desc') {
-              return user2.name.last.localeCompare(user1.name.last);
+              return user2.lastName.localeCompare(user1.lastName);
             }
             return false;
           })

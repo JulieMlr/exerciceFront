@@ -1,50 +1,28 @@
 <template>
   <div>
-    <h1> Detail User </h1>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>
-            avatarUrl
-          </th>
-          <th>
-            Nom
-          </th>
-          <th>
-            Detail
-          </th>
-          <th>
-            Email
-          </th>
-          <th>
-            Genre
-          </th>
-          <th>
-            Phone
-          </th>
-          <th>
-            Age
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <td style="width:10%">
-          <img
-            :src="userDetail.avatarUrl"
-            style="width:50%"
-          >
-        </td>
-        <td>{{ userDetail.firstName }} {{ userDetail.lastName }}</td>
-        <td> {{ userDetail.details }}</td>
-        <td> {{ userDetail.email }}</td>
-        <td> {{ userDetail.gender }}</td>
-        <td> {{ userDetail.phone }}</td>
-        <td>
-          {{ new Date(Date.now() - new Date(userDetail.birthDate)
-            .getTime()).getFullYear() - 1970 }}
-        </td>
-      </tbody>
-    </table>
+    <h1>
+      Detail User
+    </h1>
+    <dl>
+      <dd>
+        <img
+          :src="userDetail.avatarUrl"
+          class="image"
+        >
+      </dd>
+      <dt>Nom</dt>
+      <dd>{{ userDetail.firstName }} {{ userDetail.lastName }}</dd>
+      <dt>Date de Naissance</dt>
+      <dd>{{ userDetail.birthDate }}</dd>
+      <dt>Genre</dt>
+      <dd>{{ userDetail.gender }}</dd>
+      <dt>Email</dt>
+      <dd>{{ userDetail.email }}</dd>
+      <dt>Phone</dt>
+      <dd>{{ userDetail.phone }}</dd>
+      <dt>Detail</dt>
+      <dd>{{ userDetail.details }}</dd>
+    </dl>
   </div>
 </template>
 
@@ -68,10 +46,15 @@ export default {
       axios(`https://ynov-front.herokuapp.com/api/users/${this.id}`).then(
         ({ data }) => {
           this.userDetail = data.data;
-          console.log(this.userDetail);
         },
       );
     },
   },
 };
 </script>
+
+<style scoped>
+.image {
+  width: 10%;
+}
+</style>
