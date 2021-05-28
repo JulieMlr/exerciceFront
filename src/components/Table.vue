@@ -21,6 +21,7 @@
               Age
             </button>
           </th>
+          <th>  Détails </th>
         </tr>
       </thead>
       <tbody>
@@ -34,7 +35,7 @@
               style="width:50%"
             >
           </td>
-          <td>{{ user.firstName }} {{ user.lastName.toUpperCase() }}</td>
+          <td>{{ user.firstName }} {{ user.lastName }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.phone }}</td>
           <td>{{ user.gender }}</td>
@@ -42,6 +43,8 @@
             {{ new Date(Date.now() - new Date(user.birthDate)
               .getTime()).getFullYear() - 1970 }}
           </td>
+
+          <td> <a :href="'/detail/' + user._id"> Details </a></td>
         </tr>
       </tbody>
     </table>
