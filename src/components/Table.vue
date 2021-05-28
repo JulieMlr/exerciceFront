@@ -6,8 +6,8 @@
           <th />
           <th>
             <button @click="$emit('sortName')">
-              <span v-if="trieNom === 'desc'"> > </span>
-              <span v-if="trieNom === 'asc'"> inf </span>
+              <span v-if="trieName === 'desc'"> > </span>
+              <span v-if="trieName === 'asc'"> inf </span>
               Nom
             </button>
           </th>
@@ -26,14 +26,22 @@
       <tbody>
         <tr
           v-for="user in filter"
-          :key="user.login.uuid"
+          :key="user._id"
         >
-          <td><img :src="user.picture.thumbnail"></td>
-          <td>{{ user.name.first }} {{ user.name.last.toUpperCase() }}</td>
+          <td style="width:10%">
+            <img
+              :src="user.avatarUrl"
+              style="width:50%"
+            >
+          </td>
+          <td>{{ user.firstName }} {{ user.lastName.toUpperCase() }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.phone }}</td>
           <td>{{ user.gender }}</td>
-          <td>{{ user.dob.age }}</td>
+          <td>
+            {{ new Date(Date.now() - new Date(user.birthDate)
+              .getTime()).getFullYear() - 1970}}
+          </td>
         </tr>
       </tbody>
     </table>

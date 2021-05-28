@@ -9,7 +9,7 @@
     />
     <Table
       :trie-age="trieAge"
-      :trie-nom="trieNom"
+      :trie-name="trieNom"
       :filter="filterGenred"
       @sortName="sortName"
       @sortAge="sortAge"
@@ -52,7 +52,7 @@ export default {
           })
           .filter((user) => {
             if (this.search) {
-              const nom = user.name.first + user.name.last;
+              const nom = user.firstName + user.lastName;
               return this.searchWords.every((word) => nom
                 .toLowerCase()
                 .normalize('NFD')
@@ -78,7 +78,7 @@ export default {
             return false;
           })
           .map((user) => {
-            const nom = `${user.name.first} ${user.name.last}`;
+            const nom = `${user.firstName} ${user.lastName}`;
             const nameFormated = this.searchWords.length
               ? nom.replace(
                 new RegExp(this.searchWords.join('|'), 'gi'),
@@ -97,9 +97,9 @@ export default {
   beforeMount() { this.fetchUsers(); },
   methods: {
     fetchUsers() {
-      axios('https://randomuser.me/api/?results=20').then(
-        ({ data: { results } }) => {
-          this.users = results;
+      axios('https://ynov-front.herokuapp.com/api/users').then(
+        ({ data: { data } }) => {
+          this.users = data;
         },
       );
     },
