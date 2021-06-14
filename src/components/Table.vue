@@ -1,6 +1,7 @@
 <template>
   <div>
     <FormAdd />
+    <br>
     <table class="table table-hover">
       <thead>
         <tr>
