@@ -8,6 +8,7 @@
       <label for="nom">Nom</label>
       <input
         id="nom"
+        v-model="user.lastName"
         type="text"
         name="nom"
       >
@@ -15,6 +16,7 @@
       <label for="prenom">Prenom</label>
       <input
         id="prenom"
+        v-model="user.firstName"
         type="text"
         name="prenom"
       >
@@ -22,6 +24,7 @@
       <label for="email">Email</label>
       <input
         id="email"
+        v-model="user.email"
         type="email"
         name="email"
       >
@@ -30,6 +33,7 @@
       <label for="phone">Phone</label>
       <input
         id="phone"
+        v-model="user.phone"
         type="tel"
         name="phone"
       >
@@ -38,6 +42,7 @@
       <label for="detail">Detail</label>
       <input
         id="detail"
+        v-model="user.details"
         type="textarea"
         name="detail"
       >
@@ -69,11 +74,11 @@ export default {
     return {
       id: this.$route.params.id, // this is the id from the browser
       userModif: {
-        lastName: '',
-        firstName: '',
-        email: '',
-        phone: '',
-        details: '',
+        lastName: this.user.lastName,
+        firstName: this.user.firstName,
+        email: this.user.email,
+        phone: this.user.phone,
+        details: this.user.details,
         gender: this.user.gender,
         birthDate: this.user.birthDate,
       },
@@ -86,11 +91,6 @@ export default {
       this.userModif.email = document.getElementById('email').value;
       this.userModif.phone = document.getElementById('phone').value;
       this.userModif.details = document.getElementById('detail').value;
-      if (this.userModif.firstName === '') this.userModif.firstName = this.user.firstName;
-      if (this.userModif.lastName === '') this.userModif.lastName = this.user.lastName;
-      if (this.userModif.email === '') this.userModif.email = this.user.email;
-      if (this.userModif.phone === '') this.userModif.phone = this.user.phone;
-      if (this.userModif.details === '') this.userModif.details = this.user.details;
       this.putData(this.userModif);
       this.$router.push({ path: '/', params: { message: 'Modification validée' } });
     },
