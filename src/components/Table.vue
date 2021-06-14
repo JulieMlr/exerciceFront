@@ -23,6 +23,7 @@
             </button>
           </th>
           <th>  Détails </th>
+          <th>  Supprimer </th>
         </tr>
       </thead>
       <tbody>
@@ -46,6 +47,7 @@
           </td>
 
           <td> <a :href="'/detail/' + user._id"> Details </a></td>
+          <td> <a :href="'/supprimer/' + user._id"> Supprimer </a></td>
         </tr>
       </tbody>
     </table>

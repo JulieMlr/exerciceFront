@@ -119,7 +119,7 @@ export default {
       console.log(
         `${this.userAdd.avatarUrl} ${this.userAdd.lastName} ${this.userAdd.firstName} ${this.userAdd.email} ${this.userAdd.phone} ${this.userAdd.details} ${this.userAdd.birthDate}`,
       );
-      // this.postData(this.userAdd);
+      this.postData(this.userAdd);
       this.open = false;
     },
     postData(user) {
