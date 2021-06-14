@@ -27,14 +27,21 @@
         @input="$emit('changeSearch', search)"
       >
     </div>
-    <!--<span> {{ filter.length }} / {{ users.length }} </span>-->
+    <br>
+    <div class="button">
+      <FormAdd />
+    </div>
   </div>
 </template>
 
 <script>
+import FormAdd from './FormAdd.vue';
 
 export default {
   name: 'Header',
+  components: {
+    FormAdd,
+  },
   props: {
     users: {
       type: [Array],
@@ -63,3 +70,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.button {
+  align-items: flex-start;
+    display: flex;
+    margin-left: 5%;
+}
+</style>

@@ -7,7 +7,7 @@
       v-if="formulaire === false"
     >
       <button
-        class="button"
+        class="buttonModifier"
         @click="modifier()"
       >
         Formulaire de modification
@@ -37,7 +37,7 @@
     </dl>
     <div v-if="formulaire === true">
       <button
-        class="button"
+        class="buttonModifier"
         @click="modifier()"
       >
         Fermer le formulaire
@@ -87,7 +87,8 @@ export default {
 .image {
   width: 10%;
 }
-.button {
+.buttonModifier {
   margin-bottom: 10px;
+
 }
 </style>

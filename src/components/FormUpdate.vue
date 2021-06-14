@@ -47,6 +47,14 @@
         name="detail"
       >
       <br>
+      <label for="birthDate">birthDate</label>
+      <input
+        id="birthDate"
+        v-model="user.birthDate"
+        type="date"
+        name="birthDate"
+      >
+      <br>
       <button
         type="button"
         @click="getValue()"
@@ -91,6 +99,7 @@ export default {
       this.userModif.email = document.getElementById('email').value;
       this.userModif.phone = document.getElementById('phone').value;
       this.userModif.details = document.getElementById('detail').value;
+      this.userModif.birthDate = document.getElementById('birthDate').value;
       this.putData(this.userModif);
       this.$router.push({ path: '/', params: { message: 'Modification validée' } });
     },

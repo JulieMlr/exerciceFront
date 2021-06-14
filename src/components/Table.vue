@@ -1,6 +1,5 @@
 <template>
   <div>
-    <FormAdd />
     <br>
     <table class="table table-hover">
       <thead>
@@ -56,14 +55,8 @@
 </template>
 
 <script>
-import FormAdd from './FormAdd.vue';
-
 export default {
   name: 'Table',
-  components: {
-    FormAdd,
-  },
-
   props: {
     trieAge: {
       type: [String],
