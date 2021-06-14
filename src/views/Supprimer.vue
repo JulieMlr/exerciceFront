@@ -35,12 +35,7 @@ export default {
       );
     },
     supprimer() {
-      axios.delete(`https://ynov-front.herokuapp.com/api/users/${this.id}`).then((response) => {
-        console.log(response.data);
-      })
-        .catch((error) => {
-          console.log(error);
-        });
+      axios.delete(`https://ynov-front.herokuapp.com/api/users/${this.id}`);
       this.$router.push({ path: '/', params: { message: 'Modification validée' } });
     },
   },

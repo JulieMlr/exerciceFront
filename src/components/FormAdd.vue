@@ -116,20 +116,13 @@ export default {
       this.userAdd.details = document.getElementById('detail').value;
       this.userAdd.gender = document.getElementById('gender').value;
       this.userAdd.birthDate = document.getElementById('birthDate').value;
-      console.log(
-        `${this.userAdd.avatarUrl} ${this.userAdd.lastName} ${this.userAdd.firstName} ${this.userAdd.email} ${this.userAdd.phone} ${this.userAdd.details} ${this.userAdd.birthDate}`,
-      );
+
       this.postData(this.userAdd);
       this.open = false;
     },
     postData(user) {
       axios
-        .post('https://ynov-front.herokuapp.com/api/users', user).then((response) => {
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        .post('https://ynov-front.herokuapp.com/api/users', user);
     },
     hideModal() {
       this.open = false;

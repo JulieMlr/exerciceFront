@@ -36,10 +36,30 @@
 export default {
   name: 'Header',
   props: {
-    users: Array,
-    filter: Array,
-    selected: String,
-    search: String,
+    users: {
+      type: [Array],
+      default() {
+        return [];
+      },
+    },
+    filter: {
+      type: [Array],
+      default() {
+        return [];
+      },
+    },
+    selected: {
+      type: [String],
+      default() {
+        return '';
+      },
+    },
+    search: {
+      type: [String],
+      default() {
+        return '';
+      },
+    },
   },
 };
 </script>

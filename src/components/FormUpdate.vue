@@ -58,7 +58,12 @@ import axios from 'axios';
 export default {
   name: 'FormUpdate',
   props: {
-    user: Object,
+    user: {
+      type: [Object],
+      default() {
+        return {};
+      },
+    },
   },
   data() {
     return {
@@ -86,9 +91,6 @@ export default {
       if (this.userModif.email === '') this.userModif.email = this.user.email;
       if (this.userModif.phone === '') this.userModif.phone = this.user.phone;
       if (this.userModif.details === '') this.userModif.details = this.user.details;
-      console.log(
-        `${this.userModif.lastName} ${this.userModif.firstName} ${this.userModif.email} ${this.userModif.phone} ${this.userModif.details} ${this.userModif.birthDate}`,
-      );
       this.putData(this.userModif);
       this.$router.push({ path: '/', params: { message: 'Modification validée' } });
     },

@@ -65,9 +65,24 @@ export default {
   },
 
   props: {
-    trieAge: String,
-    trieName: String,
-    filter: Array,
+    trieAge: {
+      type: [String],
+      default() {
+        return '';
+      },
+    },
+    trieName: {
+      type: [String],
+      default() {
+        return '';
+      },
+    },
+    filter: {
+      type: [Array],
+      default() {
+        return [];
+      },
+    },
   },
 };
 </script>
