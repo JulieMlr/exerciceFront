@@ -22,8 +22,8 @@
               Age
             </button>
           </th>
-          <th>  Détails </th>
-          <th>  Supprimer </th>
+          <th />
+          <th />
         </tr>
       </thead>
       <tbody>

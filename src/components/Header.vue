@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>jQuery example</h1>
+    <h1>Projet Front</h1>
     <hr>
     <select
       v-model="selected"
