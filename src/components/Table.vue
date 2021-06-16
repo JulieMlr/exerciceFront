@@ -46,8 +46,16 @@
               .getTime()).getFullYear() - 1970 }}
           </td>
 
-          <td> <a :href="'/detail/' + user._id"> Details </a></td>
-          <td> <a :href="'/supprimer/' + user._id"> Supprimer </a></td>
+          <td>
+            <router-link :to="{ name: 'Detail', params: { id: user._id }}">
+              Details
+            </router-link>
+          </td>
+          <td>
+            <router-link :to="{ name: 'Supprimer', params: { id: user._id }}">
+              Supprimer
+            </router-link>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -4,7 +4,7 @@
       Vous allez supprimer {{ userDetail.firstName }} {{ userDetail.lastName }}
     </h2>
     <button
-      class="button"
+      class="button_supprimer"
       @click="supprimer()"
     >
       Supprimer
@@ -46,7 +46,7 @@ export default {
 .image {
   width: 10%;
 }
-.button {
+.button_supprimer {
   margin-bottom: 10px;
 }
 </style>
