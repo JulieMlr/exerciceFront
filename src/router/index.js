@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Detail from '../views/Detail.vue';
 import Supprimer from '../views/Supprimer.vue';
+import Api from '../views/Api.vue';
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/supprimer/:id',
     name: 'Supprimer',
     component: Supprimer,
+  },
+  {
+    path: '/api',
+    name: 'Api',
+    component: Api,
   },
 ];
 
