@@ -5,10 +5,6 @@ const path = __dirname + '/dist/';
 
 app.use(express.static(path));
 
-app.get('/', function (req, res) {
-    res.sendFile(path + "index.html");
-})
-
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, function () {
