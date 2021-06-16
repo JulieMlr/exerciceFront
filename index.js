@@ -9,11 +9,6 @@ app.use(history());
 
 app.use(express.static(path));
 
-// Il s'agit du chemin de demande qui sera utilisé lorsque le middleware identifie que le chemin de demande doit être réécrit
-history({
-    index: '/index.html'
-  });
-
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, function () {
