@@ -1,0 +1,27 @@
+name: CI/CD
+on: [push]
+jobs:
+  install-dependencies:
+    name: Install dependencies 🏗️
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+  
+  linter:
+    needs: install-dependencies
+    name: Linter 💄
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Linter
+        run: npm run lint
